@@ -3,4 +3,10 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse('Главное страница, где будет авторизация')
+    return render(request, 'index.html')
+
+def login(request):
+    return render(request, 'login.html')
+
+def reg(request):
+    return render(request, 'reg.html')

@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block title%}Home page{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form action="reg-form" method="post">
+            <div class="title">Authorisation</div>
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Username</span>
+                    <input id="username" type="text" name="username" placeholder="Enter your username">
+                </div>
+                <div class="input-box">
+                    <span class="details">Password</span>
+                    <input id="password1" type="password" name="password" placeholder="Enter your password">
+                </div>
+            </div>
+            <div class="wrong">
+                <span id="messages"></span>
+            </div>
+            <div class="button">
+                <input type="submit" name="" value="Log in">
+            </div>
+            <div class="new">
+                <div class="lab">
+                    <span>New to our site?</span>
+                </div>
+                <div class="lab1">
+                    <a href="{% url 'reg' %}"><span>Sign up</span></a>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
