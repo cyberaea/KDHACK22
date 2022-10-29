@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 # дата/время название описание тип зал оборудование фио телефон email
 # стулья телевизоры короич столы белые столы бежевые столы журнальные столы вешалки диван 2хместный стулья барный колонки микрофона микшер
-class User(models.Model):
+class Booking(models.Model):
     date = models.DateTimeField()
     title = models.CharField(max_length=50)
     description = models.TextField()
@@ -23,12 +23,11 @@ class User(models.Model):
     mic = models.IntegerField(default=0)
     mixer = models.IntegerField(default=0)
 
-    name = models.CharField(max_length=50)
-    phone_number = models.IntegerField()
-    email = models.CharField(max_length=50)
-
     approved = models.BooleanField(default=False)
 
-    # class Meta:
-    #     verbose_name = 'User'
-    #     verbose_name_plural = 'Users'
+class User(models.Model):
+    name = models.CharField(max_length=50)
+    phone_number = models.IntegerField(default=0)
+    email = models.CharField(max_length=50)
+    password = models.CharField(max_length=64)
+
