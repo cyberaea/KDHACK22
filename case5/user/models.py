@@ -31,8 +31,9 @@ class Booking(models.Model):
         return self.title
 
 class User(models.Model):
+    login = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
-    phone_number = models.IntegerField(default=0)
+    tg = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     password = models.CharField(max_length=64)
-
+    is_admin = models.BooleanField(default=False)
