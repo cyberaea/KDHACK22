@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <header>
+            <a class="logo" href="{% url 'main' %}"><img src="{% static 'img/cyberaealabs.png' %}" alt="logo"></a>
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contacts</a></li>
+                </ul>        
+            </nav>
+            <a class="cta" href="{% url 'login' %}"><button>Log in</button></a>
+        </header>
+        <div class="overlay">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </body>
+</html>
