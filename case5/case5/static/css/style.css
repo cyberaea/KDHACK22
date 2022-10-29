@@ -1,219 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-input,
-textarea {
-    outline: none;
-}
-
-input:active,
-textarea:active {
-    outline: none;
-}
-
-:focus {
-    outline: none;
-}
-
-textarea {
-    resize: none;
-}
-
-textarea {
-    resize: vertical;
-}
-
-textarea {
-    resize: horizontal;
-}
-
-li,
-a,
-button {
-    font-family: "Quicksand";
-    font-weight: 400;
-    font-size: 16px;
-    color: #edf0f1;
-    text-decoration: none;
-}
-
-header {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 30px 10%;
-    height: 7vh;
-    min-width: 768px;
-    background-color: #24252a;
-}
-
 .logo {
-    cursor: pointer;
-    width: 10%;
-    height: 10%;
-    scale: 10%;
-    order: 1;
-    margin-right: auto;
-    margin-top: -25px;
+    width: 50%;
+    margin: auto;
 }
-
-nav {
-    order: 2;
+.orange-form:focus {
+    box-shadow: 0 0 0 .25rem rgba(221, 89, 15, .25);
+    border: rgba(221, 89, 15, .25);
 }
-
-.nav_links {
-    list-style: none;
+.btn-primary {
+    background: #de6d2c;
+    border: #de6d2c;
 }
-
-.nav_links li {
-    display: inline-block;
-    padding: 0px 20px;
+.btn-primary:hover {
+    background: #dd590f;
+    border: #dd590f;
 }
-
-.nav_links li a {
-    transition: all 0.5s;
-}
-
-.nav_links li a:hover {
-    color: #0886a5;
-}
-
-.cta {
-    order: 3;
-}
-
-button {
-    padding: 8px 22px;
-    background-color: #0f7b96;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.1s;
-    margin-left: 20px;
-}
-
-button:hover {
-    background-color: #1c8aa5;
-}
-
-.overlay {
+main {
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 93vh;
-    background-color: #24252a;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
-.container {
-    max-width: 700px;
-    min-width: 425px;
-    width: fit-content;
-    background: #edf0f1;
-    padding: 25px 30px;
-    border-radius: 5px;
-}
-
-.container .title,
-input {
-    font-family: "Quicksand";
-    font-weight: 400;
-    font-size: 16px;
-    color: #24252a;
-    text-decoration: none;
-}
-
-.container span {
-    font-family: "Quicksand";
-    font-weight: 400;
-    color: #24252a;
-    text-decoration: none;
-}
-
-.container span {
-    margin-bottom: 15px !important;
-}
-
-.title {
-    margin-bottom: 10px;
-    font-size: 17px !important;
-}
-
-.user-details .input-box input {
-    height: 25px;
-    width: 100%;
+.form-signin {
+    max-width: 330px;
     padding: 15px;
-    border-width: 1px;
-    border-radius: 2px;
-    border-color: #24252a;
-    margin-top: 2px;
-    margin-bottom: 3px;
-    transition: all 0.1s;
-    font-size: 15px;
 }
 
-.input-box input:hover,
-.input-box input:focus,
-.input-box input:active {
-    width: 90%;
-}
-
-.button input {
-    width: 100%;
-    margin-top: 20px;
-    background: #edf0f1;
-    border-width: 1px;
-    border-radius: 5px;
-    border-color: #24252a;
-    padding: 2px;
-    color: #24252a;
-    transition: all 0.1s;
-}
-
-.button input:hover,
-.button input:focus,
-.button input:active {
-    background: #5db951;
-    transform: rotateY(10deg);
-}
-
-.wrong {
-    text-align: left;
-}
-
-.wrong span {
-    color: rgb(146, 0, 0);
-}
-
-.new {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: -10px;
-}
-
-.lab,
-.lab1 {
-    margin-top: 10px;
-}
-
-.lab {
-    padding-right: 10px;
-}
-
-.lab1 span {
-    color: #0886a5;
-}
-
-.lab,
-.lab1 span {
-    font-size: 14px;
-}
-
-.lab1 {
-    margin-top: 5px;
+.form-signin .form-floating:focus-within {
+    z-index: 2;
 }
