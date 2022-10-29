@@ -29,6 +29,6 @@ class User(models.Model):
 
     approved = models.BooleanField(default=False)
 
-    class Meta:
-        verbose_name = 'User'
-        verbose_name_plural = 'Users'
+    # class Meta:
+    #     verbose_name = 'User'
+    #     verbose_name_plural = 'Users'
