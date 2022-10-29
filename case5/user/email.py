@@ -7,5 +7,5 @@ def email():
     date = u.date()
     email = u.email()
     approved = u.approved()
-    if 24 >= datetime.now() - date >= 23 and approved:
+    if 24 >= datetime.now().hour - date.hour >= 23 and approved:
         return send_email(email)
