@@ -22,6 +22,10 @@ urlpatterns = [
 	path('', index, name='main'),
     path('login/', login, name='login'),
     path('reg/', reg, name='reg'),
+	path('booking/', booking, name='booking'),
+	path('profile/', profile, name='profile'),
+	path('login/', login, name='login'),
+	path('singup/', singup, name='singup'),
 	path('admin/', admin.site.urls),
     path('administrator/', include('administrator.urls')),
     path('user/', include('user.urls'))
