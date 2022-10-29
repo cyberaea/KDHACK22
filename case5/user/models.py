@@ -27,6 +27,8 @@ class User(models.Model):
     phone_number = models.IntegerField()
     email = models.CharField(max_length=50)
 
+    approved = models.BooleanField(default=False)
+
     class Meta:
         verbose_name = 'User'
         verbose_name_plural = 'Users'
