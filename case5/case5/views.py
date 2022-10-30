@@ -6,15 +6,16 @@ from user.models import User
 from user.models import Booking
 from http import cookies
 import datetime
+from datetime import timedelta
 
-
-def index(request):
-    return render(request, 'index.html')
 
 def check(book_by_time, date, time, timeend):
     for i in range(1, book_by_time.count() + 1):
         el = book_by_time.get(id=i)
         if time <= el.time <= timeend or time <= el.timeend <= timeend or el.time <= time and el.timeend >= timeend:
+            # book = Booking.objects.filter(date__iexact=date)
+            # for i in range(5):
+            #     book2 = 
             return False
     return True 
 
