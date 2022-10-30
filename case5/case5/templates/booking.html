@@ -7,10 +7,12 @@
 <div class="row">
     <div class="col">
         <form method="post">
+            {% csrf_token %}
             <label class="form-label">Дата и время</label>
             <div class="input-group col">
                 <input type="date" class="form-control mb-2" placeholder="Название мероприятия" name="date">
                 <input type="time" class="form-control mb-2" placeholder="Название мероприятия" name="time">
+                <input type="time" class="form-control mb-2" placeholder="Название мероприятия" name="timeend">
             </div>
             <label class="form-label">Мероприятие</label>
             <input type="text" class="form-control mb-2" placeholder="Название мероприятия" name="event_name">
@@ -39,61 +41,57 @@
             <div class="row row-cols-2">
                 <div class="input-group mb-3 col">
                     <span class="input-group-text">Стул</span>
-                    <input type="text" class="form-control" name="chair">
+                    <input type="text" class="form-control" value="0" name="chair">
                 </div>
                 <div class="input-group mb-3 col">
                     <span class="input-group-text">ТВ LG со стойками</span>
-                    <input type="text" class="form-control" name="LG">
+                    <input type="text" class="form-control" value="0" name="LG">
                 </div>
                 <div class="input-group mb-3 col">
                     <span class="input-group-text">Стол (коричневый)</span>
-                    <input type="nutextber" class="form-control" name="brown_table">
+                    <input type="nutextber" class="form-control" value="0" name="brown_table">
                 </div>
                 <div class="input-group mb-3 col">
                     <span class="input-group-text">Стол (белый)</span>
-                    <input type="nutextber" class="form-control" name="white_table">
+                    <input type="nutextber" class="form-control" value="0" name="white_table">
                 </div>
                 <div class="input-group mb-3 col">
                     <span class="input-group-text">Вешалка для одежды</span>
-                    <input type="nutextber" class="form-control" name="bebra">
+                    <input type="nutextber" class="form-control" value="0" name="bebra">
                 </div>
                 <div class="input-group mb-3 col">
                     <span class="input-group-text">Журнальный стол</span>
-                    <input type="nutextber" class="form-control" name="jour_table">
+                    <input type="nutextber" class="form-control" value="0" name="jour_table">
                 </div>
                 <div class="input-group mb-3 col">
                     <span class="input-group-text">Диван 2х местный</span>
-                    <input type="nutextber" class="form-control" name="sofa">
+                    <input type="nutextber" class="form-control" value="0" name="sofa">
                 </div>
                 <div class="input-group mb-3 col">
                     <span class="input-group-text">Стул барный</span>
-                    <input type="nutextber" class="form-control" name="bar_chair">
+                    <input type="nutextber" class="form-control" value="0" name="bar_chair">
                 </div>  
                 <div class="input-group mb-3 col">
                     <span class="input-group-text">Колонки со стойками</span>
-                    <input type="nutextber" class="form-control" name="stereo">
+                    <input type="nutextber" class="form-control" value="0" name="stereo">
                 </div>
                 <div class="input-group mb-3 col">
                     <span class="input-group-text">Бзовая станция радио микрофона</span>
-                    <input type="nutextber" class="form-control" name="radio">
+                    <input type="nutextber" class="form-control" value="0" name="radio">
                 </div>
                 <div class="input-group mb-3 col">
                     <span class="input-group-text">Микшер</span>
-                    <input type="nutextber" class="form-control" name="mixer">
+                    <input type="nutextber" class="form-control" value="0" name="mixer">
                 </div>
                 <div class="input-group mb-3 col">
                     <span class="input-group-text">Стол (бежевый)</span>
-                    <input type="nutextber" class="form-control" name="beig_table">
+                    <input type="nutextber" class="form-control" value="0" name="beig_table">
                 </div>
                 <div class="input-group mb-3 col">
                     <span class="input-group-text">Стол</span>
-                    <input type="nutextber" class="form-control" name="table">
+                    <input type="nutextber" class="form-control" value="0" name="table">
                 </div>
             </div>
-            <label class="form-label">Контактные данные</label>
-            <input type="text" class="form-control mb-2" placeholder="ФИО / Организация" name="FIO">
-            <input type="text" class="form-control mb-2" placeholder="Телефон" name="tel">
-            <input type="text" class="form-control mb-2" placeholder="Email" name="email">
             <button class="w-100 btn btn-lg btn-primary" type="submit">Забронировать</button>
         </form>
     </div>

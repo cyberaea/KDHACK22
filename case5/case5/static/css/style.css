@@ -1,10 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Rubik+Mono+One&display=swap');
+html {
+    scroll-behavior: smooth;
+}
 .logo {
     width: 50%;
     margin: auto;
-}
-.textdm {
-    font-family: 'Haymaker', sans-serif;
-    color: #fff;
 }
 .bgi {
     position: fixed;
@@ -16,19 +16,34 @@
     margin-top: -9px;
     z-index: -1;
 }
-.bg-color {
-    background: #31a3fc;
-}
-.bg-color:hover{
-    background: #57b6ff;
-    transition: .1s;
-}
 .form-control:focus, .form-select:focus {
     box-shadow: 0 0 0 .25rem rgba(221, 89, 15, .25);
     border: rgba(221, 89, 15, .25);
 }
 .orange-text {
     color: #de6d2c;
+}
+.w:before {
+    content: '';
+    display: inline-block;
+    height: 100vh;
+    vertical-align: middle;
+}
+.w {
+    background-size: 100% 100%;
+}
+.dmt {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'Rubik Mono One', sans-serif;
+    color: #fff;
+}
+.dmt2 {
+    display: inline-block;
+    vertical-align: middle;
+}
+.opt {
+    font-family: 'Montserrat', sans-serif;
 }
 .btn-primary {
     background: #de6d2c;

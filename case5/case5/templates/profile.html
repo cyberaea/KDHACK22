@@ -1,36 +1,87 @@
 {% extends 'base.html' %}
 
-{% block title %}Booking{% endblock %}
+{% block title %}{% endblock %}
 
 {% block content %}
-<h1 class="text-end orange-text">{{ user }}</h1>
-<div class="row row-cols-2">
-  <div class="d-grid gap-3 my-3 col">
-    <h1 class="display-5 m-0">1 ноября - пн</h1>
-    <div class="bg-color rounded-3">
-      <h5 class="ms-3 mt-2">Танцы 6:30-10:00</h5>
-    </div>
-    <div class="bg-color rounded-3">
-      <h5 class="ms-3 mt-2">Спорт 16:30-20:00</h5>
+{% load static %}
+<h1 class="text-end orange-text">{{ un }}</h1>
+<div class="row ">
+  <div class="col">
+  {% for b in bs %}
+  <div class="d-grid gap-3 my-3">
+    <h1 class="display-5 m-0">{{ b.date }}</h1>
+    <div class="btn-group" role="group">
+        <button type="button" class="btn text-start btn-secondary static" id="{{ b.date }}" onclick="inf(this)">{{ b.title }}    {{ b.time }} - {{ b.timeend }}
+            {% if b.type == '1'%}
+                <h4>{{genres.1}}</h4>
+            {% endif %}
+            {% if b.type == '2'%}
+                <h4>{{genres.2}}</h4>
+            {% endif %}
+            {% if b.type == '3'%}
+                <h4>{{genres.3}}</h4>
+            {% endif %}
+            {% if b.type == '4'%}
+                <h4>{{genres.4}}</h4>
+            {% endif %}
+            {% if b.type == '5'%}
+                <h4>{{genres.5}}</h4>
+            {% endif %}
+            {% if b.type == '6'%}
+                <h4>{{genres.6}}</h4>
+            {% endif %}
+            {% if b.type == '7'%}
+                <h4>{{genres.7}}</h4>
+            {% endif %}
+            {% if b.type == '8'%}
+                <h4>{{genres.8}}</h4>
+            {% endif %}
+            {% if b.type == '9'%}
+                <h4>{{genres.9}}</h4>
+            {% endif %}
+            {% if b.type == '1'%}
+                <h4>{{hall.1}}</h4>
+            {% endif %}
+            {% if b.type == '2'%}
+                <h4>{{hall.2}}</h4>
+            {% endif %}
+            {% if b.type == '3'%}
+                <h4>{{hall.3}}</h4>
+            {% endif %}
+            {% if b.type == '4'%}
+                <h4>{{hall.4}}</h4>
+            {% endif %}
+            {% if b.type == '5'%}
+                <h4>{{hall.5}}</h4>
+            {% endif %}
+        </button>
     </div>
   </div>
-  <div class="d-grid gap-3 my-3 col">
-    <h1 class="display-5 m-0">2 ноября - вт</h1>
-    <div class="bg-color rounded-3">
-      <h5 class="ms-3 mt-2">Танцы 6:30-10:00</h5>
+  {% endfor %}
+  </div>  
+  <div class="col" id="inf">
+    {% for b in bs %}
+    <div class="mt-3" hidden id="{{ b.date }}txt">
+        <h1>{{ b.title }}</h1>
+        <h3>{{ b.type }}</h3>
+        <p><small>{{ b.discription }}</small></p>
+        <p>{{ b.hall }}</p>
+        <h3>Оборудование</h3>
+        <p>Стулья - {{ b.chairs }}</p>
+        <p>Барные стулья - {{ b.bar_stools }}</p>
+        <p>Телевизор LG со стойками - {{ b.TVs }}</p>
+        <p>Коричневые столы - {{ b.brown_tables }}</p>
+        <p>Белые столы - {{ b.white_table }}</p>
+        <p>Бежевые столы - {{ b.beige_tables }}</p>
+        <p>Столы - {{ b.tables }}</p>
+        <p>Журнальные столы - {{ b.journal_tables }}</p>
+        <p>Вешалки для одежды - {{ b.bebra_trees }}</p>
+        <p>Колонки- {{ b.sofas }}</p>
+        <p>Колонки - {{ b.speakers }}</p>
+        <p>Радио система - {{ b.mic }}</p>
+        <p>Микшер - {{ b.mixer }}</p>
     </div>
-    <div class="bg-color rounded-3">
-      <h5 class="ms-3 mt-2">Спорт 16:30-20:00</h5>
-    </div>
-  </div>
-  <div class="d-grid gap-3 my-3 col">
-    <h1 class="display-5 m-0">3 ноября - ср</h1>
-    <div class="bg-color rounded-3">
-      <h5 class="ms-3 mt-2">Танцы 6:30-10:00</h5>
-    </div>
-    <div class="bg-color rounded-3">
-      <h5 class="ms-3 mt-2">Спорт 16:30-20:00</h5>
-    </div>
+    {% endfor %}
   </div>
 </div>
 {% endblock %}
