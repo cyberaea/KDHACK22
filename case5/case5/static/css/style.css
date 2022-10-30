@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Rubik+Mono+One&display=swap');
-
+html {
+    scroll-behavior: smooth;
+}
 .logo {
     width: 50%;
     margin: auto;

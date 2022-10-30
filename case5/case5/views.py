@@ -77,7 +77,19 @@ def adminpanel(request):
     x = int(request.COOKIES['id'])
     u = user.objects.filter(id__iexact=x)
     if u.latest('login').is_admin:
-        return render(request, 'adminpanel.html')
+        un = u.latest('login').name
+        bs = Booking.objects.order_by('date')
+        if request.method == 'POST':
+            x2 = request.POST.get('iuda')
+            if request.POST.get('otkl'):
+                bs[int(x2)].approved = -1
+            elif request.POST.get('prin'):
+                bs[int(x2)].approved = 1
+        ctx = {
+            'bs': bs,
+            'un': un
+        }
+        return render(request, 'adminpanel.html', ctx)
     else:
         return render(request, 'adminpanel_poshel_von.html')
 
@@ -114,7 +126,7 @@ def profile(request):
     u = User.objects.filter(id__iexact=x)
     un = u.latest('login').name
     print(un)
-    bs = Booking.objects.filter(user_id__iexact=x)
+    bs = Booking.objects.filter(user_id__iexact=x).order_by('date')
     ctx = {
         'bs': bs,
         'un': un
@@ -149,7 +161,7 @@ def singup(request):
         user.tg = request.POST.get('tg')    
         user.email = request.POST.get('email')
         user.password = request.POST.get('password')
-        if user.password == '123456789': 
+        if user.password == '123': 
             user.is_admin = 1
         user.save()
         rsn.set_cookie('id', str(user.id), max_age=315336000)
