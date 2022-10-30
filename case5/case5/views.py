@@ -5,6 +5,7 @@ from django.shortcuts import redirect, render
 from user.models import User
 from user.models import Booking
 from http import cookies
+import datetime
 
 
 def index(request):
@@ -16,30 +17,66 @@ def login(request):
 def reg(request):
     return render(request, 'reg.html')
 
+def check(book_by_time, date, time, timeend):
+    for i in range(1, book_by_time.count() + 1):
+        el = book_by_time.get(id=i)
+        if time <= el.time <= timeend or time <= el.timeend <= timeend or el.time <= time and el.timeend >= timeend:
+            return False
+    return True
+
+        
+    
+
 def booking(request):
-    book = Booking()
+    
     if request.method == 'POST':
-        book.date = request.POST.get('date')
-        book.time = request.POST.get('time')
-        book.timeend = request.POST.get('timeend')
-        book.title = request.POST.get('event_name')
-        book.description = request.POST.get('event_disc')
-        book.type = request.POST.get('event_type')
-        book.hall = request.POST.get('hall')
-        book.chairs = request.POST.get('chair')
-        book.TVs = request.POST.get('LG')
-        book.brown_tables = request.POST.get('brown_table')
-        book.white_tables = request.POST.get('white_table')
-        book.bebra_trees = request.POST.get('bebra')
-        book.journal_tables = request.POST.get('jour_table')
-        book.sofas = request.POST.get('sofa')
-        book.bar_stools = request.POST.get('bar_chair')
-        book.speakers = request.POST.get('stereo')
-        book.mic = request.POST.get('radio')
-        book.mixer = request.POST.get('mixer')
-        book.beige_tables = request.POST.get('beig_table')
-        book.tables =  request.POST.get('table')
-        book.save()
+        dt = request.POST.get('date').split('-')
+        dt = tuple(map(int, dt))
+        a1, b1, c1 = dt[0], dt[1], dt[2]
+        date = datetime.date(a1, b1, c1)
+
+        t = request.POST.get('time').split(':')
+        t = tuple(map(int, t))
+        a2, b2 = t[0], t[1]
+        time = datetime.time(a2, b2)
+
+        te = request.POST.get('timeend').split(':')
+        te = tuple(map(int, te))
+        a3, b3 = te[0], te[1]
+        timeend = datetime.time(a3, b3)
+
+        hall = request.POST.get('hall')
+        book_by_hall = Booking.objects.filter(hall__iexact=hall)
+        book_by_date = book_by_hall.filter(date__iexact=date)
+        book_by_time = book_by_date.filter(approved__iexact=1)
+        if check(book_by_time, date, time, timeend):
+            book = Booking()
+
+            book.date = datetime.date(a1, b1, c1)
+
+            book.time = datetime.time(a2, b2)
+
+            book.timeend = datetime.time(a3, b3)
+
+            book.title = request.POST.get('event_name')
+            book.description = request.POST.get('event_disc')
+            book.type = request.POST.get('event_type')
+            book.hall = request.POST.get('hall')
+            book.chairs = request.POST.get('chair')
+            book.TVs = request.POST.get('LG')
+            book.brown_tables = request.POST.get('brown_table')
+            book.white_tables = request.POST.get('white_table')
+            book.bebra_trees = request.POST.get('bebra')
+            book.journal_tables = request.POST.get('jour_table')
+            book.sofas = request.POST.get('sofa')
+            book.bar_stools = request.POST.get('bar_chair')
+            book.speakers = request.POST.get('stereo')
+            book.mic = request.POST.get('radio')
+            book.mixer = request.POST.get('mixer')
+            book.beige_tables = request.POST.get('beig_table')
+            book.tables =  request.POST.get('table')
+            book.user_id = int(request.COOKIES['id'])
+            book.save()
     return render(request, 'booking.html')
 
 def adminpanel(request):

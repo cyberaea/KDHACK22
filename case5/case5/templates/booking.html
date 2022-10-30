@@ -7,6 +7,7 @@
 <div class="row">
     <div class="col">
         <form method="post">
+            {% csrf_token %}
             <label class="form-label">Дата и время</label>
             <div class="input-group col">
                 <input type="date" class="form-control mb-2" placeholder="Название мероприятия" name="date">
