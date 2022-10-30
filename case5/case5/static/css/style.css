@@ -36,10 +36,12 @@
     font-family: 'Rubik Mono One', sans-serif;
     color: #fff;
 }
-
+.dmt2 {
+    display: inline-block;
+    vertical-align: middle;
+}
 .opt {
     font-family: 'Montserrat', sans-serif;
-    text-align: end;
 }
 .btn-primary {
     background: #de6d2c;
