@@ -71,6 +71,7 @@ def booking(request):
             book.save()
     return render(request, 'booking.html')
 
+
 def adminpanel(request):
     user = User
     x = int(request.COOKIES['id'])
@@ -83,13 +84,32 @@ def adminpanel(request):
 def home(request):
     return render(request, 'home.html')
 
+def get_model_fields(model):
+    return model._meta.fields
+
+
 def profile(request):
-    x = int(request.COOKIES['id'])
-    bs = Booking.objects.get(user_id=x)
-    print(type(bs))
-    ctx = {
-        'bs': bs,
+    
+    genres = {
+        '1': 'Спортивное мероприятие',
+        '2': 'Музыкальное мероприятие',
+        '3': 'Конференция',
+        '4': 'Выставка',
+        '5': 'Мастер класс / тренинг',
+        '6': 'Праздник',
+        '7': 'Банкет',
+        '8': 'Благотворительная акция',
+        '9': 'Другое'
     }
+
+    halls = {
+        '1': 'Большой зал',
+        '2': 'Большой танцевальный зал',
+        '3': 'Зал бочки',
+        '4': 'Малый ситцевый зал',
+        '5': 'Ситцевая',
+    }
+
     return render(request, 'profile.html', ctx)
 
 def login(request):
