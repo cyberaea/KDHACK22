@@ -8,3 +8,7 @@ function inf(el) {
     }
 
 }
+
+$(document).ready(function() {
+    sessionStorage.scrollTop = $(this).scrollTop();
+});
