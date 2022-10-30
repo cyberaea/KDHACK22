@@ -14,4 +14,3 @@ image = ImageCaptcha()
 data = image.generate(s)
 
 image.write(s, 'captcha.png')
-
