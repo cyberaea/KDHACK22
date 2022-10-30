@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
 from user.models import User
 from http import cookies
 
@@ -14,6 +15,12 @@ def reg(request):
 
 def booking(request):
     return render(request, 'booking.html')
+
+def adminpanel(request):
+    return render(request, 'adminpanel.html')
+
+def home(request):
+    return render(request, 'home.html')
 
 def profile(request):
     user = User
@@ -36,6 +43,7 @@ def login(request):
                 rsn.set_cookie('id', user.latest('login').id, max_age=315336000)
                 # return redirect('/profile')
     return rsn
+
 
 def singup(request):
     user = User()

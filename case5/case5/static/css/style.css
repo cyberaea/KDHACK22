@@ -2,10 +2,28 @@
     width: 50%;
     margin: auto;
 }
+.textdm {
+    font-family: 'Haymaker', sans-serif;
+    color: #fff;
+}
+.bgi {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    filter: blur(7.5px); 
+    position: fixed;
+    margin-left: -9px;
+    margin-top: -9px;
+    z-index: -1;
+}
 .bg-color {
     background: #31a3fc;
 }
-.orange-form:focus {
+.bg-color:hover{
+    background: #57b6ff;
+    transition: .1s;
+}
+.form-control:focus, .form-select:focus {
     box-shadow: 0 0 0 .25rem rgba(221, 89, 15, .25);
     border: rgba(221, 89, 15, .25);
 }
@@ -20,7 +38,7 @@
     background: #dd590f;
     border: 1px solid #dd590f;
 }
-.btn-primary:active {
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
     background: #dd590f;
     border: 1px solid #dd590f;
 }
