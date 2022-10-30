@@ -35,7 +35,7 @@ def booking(request):
         a3, b3 = te[0], te[1]
         timeend = datetime.time(a3, b3)
 
-        book_to_delete = Booking().objects.filter(approved=0)
+        #book_to_delete = Booking().objects.filter(approved=0)
 
         hall = request.POST.get('hall')
         book_by_hall = Booking.objects.filter(hall__iexact=hall)
@@ -84,11 +84,11 @@ def home(request):
     return render(request, 'home.html')
 
 def profile(request):
-    user = User
     x = int(request.COOKIES['id'])
-    u = user.objects.filter(id__iexact=x)
+    bs = Booking.objects.get(user_id=x)
+    print(type(bs))
     ctx = {
-        'user': u.latest('login').name,
+        'bs': bs,
     }
     return render(request, 'profile.html', ctx)
 

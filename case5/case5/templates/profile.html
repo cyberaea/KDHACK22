@@ -3,33 +3,15 @@
 {% block title %}Booking{% endblock %}
 
 {% block content %}
+{% for b in bs %}
+<p>b.name</p>
+{% endfor %}
 <h1 class="text-end orange-text">{{ user }}</h1>
 <div class="row row-cols-2">
   <div class="d-grid gap-3 my-3 col">
     <h1 class="display-5 m-0">1 ноября - пн</h1>
-    <div class="bg-color rounded-3">
-      <h5 class="ms-3 mt-2">Танцы 6:30-10:00</h5>
-    </div>
-    <div class="bg-color rounded-3">
-      <h5 class="ms-3 mt-2">Спорт 16:30-20:00</h5>
-    </div>
-  </div>
-  <div class="d-grid gap-3 my-3 col">
-    <h1 class="display-5 m-0">2 ноября - вт</h1>
-    <div class="bg-color rounded-3">
-      <h5 class="ms-3 mt-2">Танцы 6:30-10:00</h5>
-    </div>
-    <div class="bg-color rounded-3">
-      <h5 class="ms-3 mt-2">Спорт 16:30-20:00</h5>
-    </div>
-  </div>
-  <div class="d-grid gap-3 my-3 col">
-    <h1 class="display-5 m-0">3 ноября - ср</h1>
-    <div class="bg-color rounded-3">
-      <h5 class="ms-3 mt-2">Танцы 6:30-10:00</h5>
-    </div>
-    <div class="bg-color rounded-3">
-      <h5 class="ms-3 mt-2">Спорт 16:30-20:00</h5>
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-secondary static" onclick="inf(this)">Спорт 16:30-20:00</button>
     </div>
   </div>
 </div>
