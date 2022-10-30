@@ -1,10 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Rubik+Mono+One&display=swap');
+
 .logo {
     width: 50%;
     margin: auto;
-}
-.textdm {
-    font-family: 'Haymaker', sans-serif;
-    color: #fff;
 }
 .bgi {
     position: fixed;
@@ -29,6 +27,25 @@
 }
 .orange-text {
     color: #de6d2c;
+}
+.w:before {
+    content: '';
+    display: inline-block;
+    height: 100vh;
+    vertical-align: middle;
+}
+.w {
+    background-size: 100% 100%;
+}
+.dmt {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'Rubik Mono One', sans-serif;
+    color: #fff;
+}
+.opt {
+    font-family: 'Montserrat', sans-serif;
+    text-align: end;
 }
 .btn-primary {
     background: #de6d2c;

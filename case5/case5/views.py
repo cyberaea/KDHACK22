@@ -5,6 +5,7 @@ from xmlrpc.server import MultiPathXMLRPCServer
 from django.forms import CharField
 from django.shortcuts import redirect, render
 from user.models import User
+from user.models import Booking
 from http import cookies
 
 
@@ -18,30 +19,29 @@ def reg(request):
     return render(request, 'reg.html')
 
 def booking(request):
+    book = Booking()
     if request.method == 'POST':
-        date = request.POST.get('date')
-        time = request.POST.get('time')
-        event_name = request.POST.get('event_name')
-        event_disc = request.POST.get('event_disc')
-        event_type = request.POST.get('event_type')
-        hall = request.POST.get('hall')
-        chair = request.POST.get('chair')
-        LG = request.POST.get('LG')
-        brown_table = request.POST.get('brown_table')
-        white_table = request.POST.get('white_table')
-        bebra = request.POST.get('bebra')
-        jour_table = request.POST.get('jour_table')
-        sofa = request.POST.get('sofa')
-        bar_chair = request.POST.get('bar_chair')
-        stereo = request.POST.get('stereo')
-        radio = request.POST.get('radio')
-        mixer = request.POST.get('mixer')
-        beig_table = request.POST.get('beig_table')
-        table =  request.POST.get('table')
-        FIO = request.POST.get('FIO')
-        tel = request.POST.get('tel')
-        email = request.POST.get('email')
-        
+        book.date = request.POST.get('date')
+        book.time = request.POST.get('time')
+        book.timeend = request.POST.get('timeend')
+        book.title = request.POST.get('event_name')
+        book.description = request.POST.get('event_disc')
+        book.type = request.POST.get('event_type')
+        book.hall = request.POST.get('hall')
+        book.chairs = request.POST.get('chair')
+        book.TVs = request.POST.get('LG')
+        book.brown_tables = request.POST.get('brown_table')
+        book.white_tables = request.POST.get('white_table')
+        book.bebra_trees = request.POST.get('bebra')
+        book.journal_tables = request.POST.get('jour_table')
+        book.sofas = request.POST.get('sofa')
+        book.bar_stools = request.POST.get('bar_chair')
+        book.speakers = request.POST.get('stereo')
+        book.mic = request.POST.get('radio')
+        book.mixer = request.POST.get('mixer')
+        book.beige_tables = request.POST.get('beig_table')
+        book.tables =  request.POST.get('table')
+        book.save()
     return render(request, 'booking.html')
 
 def profile(request):
