@@ -1,15 +1,18 @@
 from email.policy import default
 from django.db import models
+import datetime
 
 # Create your models here.
 # дата/время название описание тип зал оборудование фио телефон email
 # стулья телевизоры короич столы белые столы бежевые столы журнальные столы вешалки диван 2хместный стулья барный колонки микрофона микшер
 class Booking(models.Model):
-    date = models.DateTimeField()
+    date = models.DateField(default=datetime.date(1, 1, 1))
+    time = models.TimeField(default=datetime.time(0, 0))
+    timeend = models.TimeField(default=datetime.time(0, 0))
     title = models.CharField(max_length=50)
     description = models.TextField()
     type = models.CharField(max_length=50)
-    hall = models.IntegerField()
+    hall = models.IntegerField(default=0)
     chairs = models.CharField(max_length=10)
     bar_stools = models.CharField(max_length=10)
     TVs = models.CharField(max_length=10)
@@ -25,6 +28,7 @@ class Booking(models.Model):
     mixer = models.CharField(max_length=10)
 
     approved = models.BooleanField(default=False)
+    user_id = models.IntegerField(default=-1)
     class Meta:
         verbose_name = 'Booking'
         verbose_name_plural = 'Bookings'
