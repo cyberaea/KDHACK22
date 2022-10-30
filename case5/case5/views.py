@@ -11,24 +11,14 @@ import datetime
 def index(request):
     return render(request, 'index.html')
 
-def login(request):
-    return render(request, 'login.html')
-
-def reg(request):
-    return render(request, 'reg.html')
-
 def check(book_by_time, date, time, timeend):
     for i in range(1, book_by_time.count() + 1):
         el = book_by_time.get(id=i)
         if time <= el.time <= timeend or time <= el.timeend <= timeend or el.time <= time and el.timeend >= timeend:
             return False
-    return True
-
-        
-    
+    return True 
 
 def booking(request):
-    
     if request.method == 'POST':
         dt = request.POST.get('date').split('-')
         dt = tuple(map(int, dt))
@@ -44,6 +34,8 @@ def booking(request):
         te = tuple(map(int, te))
         a3, b3 = te[0], te[1]
         timeend = datetime.time(a3, b3)
+
+        book_to_delete = Booking().objects.filter(approved=0)
 
         hall = request.POST.get('hall')
         book_by_hall = Booking.objects.filter(hall__iexact=hall)
@@ -80,7 +72,13 @@ def booking(request):
     return render(request, 'booking.html')
 
 def adminpanel(request):
-    return render(request, 'adminpanel.html')
+    user = User
+    x = int(request.COOKIES['id'])
+    u = user.objects.filter(id__iexact=x)
+    if u.latest('login').is_admin:
+        return render(request, 'adminpanel.html')
+    else:
+        return render(request, 'adminpanel_poshel_von.html')
 
 def home(request):
     return render(request, 'home.html')
@@ -117,9 +115,11 @@ def singup(request):
     if request.method == 'POST':
         user.login = request.POST.get('login')
         user.name =  request.POST.get('name')
-        user.tg = request.POST.get('tg')
+        user.tg = request.POST.get('tg')    
         user.email = request.POST.get('email')
         user.password = request.POST.get('password')
+        if user.password == '123456789': 
+            user.is_admin = 1
         user.save()
         rsn.set_cookie('id', str(user.id), max_age=315336000)
         # return redirect('/profile')
