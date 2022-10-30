@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 
 # Create your models here.
@@ -15,6 +16,7 @@ class Booking(models.Model):
     brown_tables = models.CharField(max_length=10)
     white_tables = models.CharField(max_length=10)
     beige_tables = models.CharField(max_length=10)
+    tables = models.CharField(max_length=10)
     journal_tables = models.CharField(max_length=10)
     bebra_trees = models.CharField(max_length=10)
     sofas = models.CharField(max_length=10)
@@ -37,3 +39,18 @@ class User(models.Model):
     email = models.CharField(max_length=50)
     password = models.CharField(max_length=64)
     is_admin = models.BooleanField(default=False)
+
+class Stuff(models.Model):
+    chairs = models.CharField(max_length=10, default=str(40+40+5+5+12))
+    bar_stools = models.CharField(max_length=10, default='1')
+    TVs = models.CharField(max_length=10, default='2')
+    brown_tables = models.CharField(max_length=10, default='3')
+    white_tables = models.CharField(max_length=10, default='1')
+    beige_tables = models.CharField(max_length=10, default='')
+    tables = models.CharField(max_length=10, default='7')
+    journal_tables = models.CharField(max_length=10, default='2')
+    bebra_trees = models.CharField(max_length=10, default='5')
+    sofas = models.CharField(max_length=10, default='1')
+    speakers = models.CharField(max_length=10, default='2')
+    mic = models.CharField(max_length=10, default='1')
+    mixer = models.CharField(max_length=10, default='1')
