@@ -18,9 +18,8 @@ def reg(request):
     return render(request, 'reg.html')
 
 def check(book_by_time, date, time, timeend):
-    for i in range(book_by_time.count()):
-        el = book_by_time.objects.filter(id__iexact=i)
-        print(time, timeend, el.time, el.timeend)
+    for i in range(1, book_by_time.count() + 1):
+        el = book_by_time.get(id=i)
         if time <= el.time <= timeend or time <= el.timeend <= timeend or el.time <= time and el.timeend >= timeend:
             return False
     return True
@@ -33,41 +32,31 @@ def booking(request):
     if request.method == 'POST':
         dt = request.POST.get('date').split('-')
         dt = tuple(map(int, dt))
-        a, b, c = dt[0], dt[1], dt[2]
-        date = datetime.date(a, b, c)
+        a1, b1, c1 = dt[0], dt[1], dt[2]
+        date = datetime.date(a1, b1, c1)
 
         t = request.POST.get('time').split(':')
         t = tuple(map(int, t))
-        a, b = t[0], t[1]
-        time = datetime.time(a, b)
+        a2, b2 = t[0], t[1]
+        time = datetime.time(a2, b2)
 
         te = request.POST.get('timeend').split(':')
         te = tuple(map(int, te))
-        a, b = te[0], te[1]
-        timeend = datetime.time(a, b)
+        a3, b3 = te[0], te[1]
+        timeend = datetime.time(a3, b3)
 
         hall = request.POST.get('hall')
         book_by_hall = Booking.objects.filter(hall__iexact=hall)
         book_by_date = book_by_hall.filter(date__iexact=date)
-        book_by_time = book_by_date.filter(approved__iexact=True)
+        book_by_time = book_by_date.filter(approved__iexact=1)
         if check(book_by_time, date, time, timeend):
-            print('here')
             book = Booking()
 
-            dt = request.POST.get('date').split('-')
-            dt = tuple(map(int, dt))
-            a, b, c = dt[0], dt[1], dt[2]
-            date = datetime.date(a, b, c)
+            book.date = datetime.date(a1, b1, c1)
 
-            t = request.POST.get('time').split(':')
-            t = tuple(map(int, t))
-            a, b = t[0], t[1]
-            time = datetime.time(a, b)
+            book.time = datetime.time(a2, b2)
 
-            te = request.POST.get('timeend').split(':')
-            te = tuple(map(int, te))
-            a, b = te[0], te[1]
-            timeend = datetime.time(a, b)
+            book.timeend = datetime.time(a3, b3)
 
             book.title = request.POST.get('event_name')
             book.description = request.POST.get('event_disc')
