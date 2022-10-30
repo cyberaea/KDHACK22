@@ -109,6 +109,17 @@ def profile(request):
         '4': 'Малый ситцевый зал',
         '5': 'Ситцевая',
     }
+    
+    x = int(request.COOKIES['id'])
+    u = User.objects.filter(id__iexact=x)
+    un = u.latest('login').name
+    print(un)
+    bs = Booking.objects.filter(user_id__iexact=x)
+    ctx = {
+        'bs': bs,
+        'un': un
+    }
+
 
     return render(request, 'profile.html', ctx)
 
