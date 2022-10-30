@@ -7,7 +7,6 @@ from user.models import Booking
 from http import cookies
 import datetime
 
-
 def index(request):
     return render(request, 'index.html')
 
@@ -76,18 +75,20 @@ def adminpanel(request):
     user = User
     x = int(request.COOKIES['id'])
     u = user.objects.filter(id__iexact=x)
+    bs = Booking.objects.order_by('date')
     if u.latest('login').is_admin:
-        un = u.latest('login').name
-        bs = Booking.objects.order_by('date')
         if request.method == 'POST':
             x2 = request.POST.get('iuda')
+            print(x2)
+            boob = Booking.objects.get(id=int(x2))
             if request.POST.get('otkl'):
-                bs[int(x2)].approved = -1
+                boob.delete()
             elif request.POST.get('prin'):
-                bs[int(x2)].approved = 1
+                boob.approved = 1
+                boob.save()
         ctx = {
             'bs': bs,
-            'un': un
+            'us': u,
         }
         return render(request, 'adminpanel.html', ctx)
     else:
