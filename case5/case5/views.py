@@ -1,4 +1,8 @@
-from django.shortcuts import render, redirect
+from ctypes.wintypes import LGRPID
+from termios import FIOASYNC
+from threading import BrokenBarrierError
+from xmlrpc.server import MultiPathXMLRPCServer
+from django.forms import CharField
 from django.shortcuts import redirect, render
 from user.models import User
 from http import cookies
@@ -14,6 +18,30 @@ def reg(request):
     return render(request, 'reg.html')
 
 def booking(request):
+    if request.method == 'POST':
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+        event_name = request.POST.get('event_name')
+        event_disc = request.POST.get('event_disc')
+        event_type = request.POST.get('event_type')
+        hall = request.POST.get('hall')
+        chair = request.POST.get('chair')
+        LG = request.POST.get('LG')
+        brown_table = request.POST.get('brown_table')
+        white_table = request.POST.get('white_table')
+        bebra = request.POST.get('bebra')
+        jour_table = request.POST.get('jour_table')
+        sofa = request.POST.get('sofa')
+        bar_chair = request.POST.get('bar_chair')
+        stereo = request.POST.get('stereo')
+        radio = request.POST.get('radio')
+        mixer = request.POST.get('mixer')
+        beig_table = request.POST.get('beig_table')
+        table =  request.POST.get('table')
+        FIO = request.POST.get('FIO')
+        tel = request.POST.get('tel')
+        email = request.POST.get('email')
+        
     return render(request, 'booking.html')
 
 def adminpanel(request):

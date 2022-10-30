@@ -6,99 +6,96 @@
 {% load static %}
 <div class="row">
     <div class="col">
-        <label class="form-label">Дата и время</label>
-
-        <div class="input-group mb-3 col">
-            <input type="date" class="form-control mb-2" placeholder="Название мероприятия">
-            <input type="time" class="form-control mb-2" placeholder="Название мероприятия">
-        </div>
-        <label class="form-label">Мероприятие</label>
-        <input type="text" class="form-control mb-2" placeholder="Название мероприятия">
-        <textarea type="text" class="form-control mb-2" placeholder="Описание мероприятия"></textarea>
-        <label class="form-label">Тип мероприятия</label>
-        <select class="form-select mb-2" aria-label="Default select example">
-            <option value="1">Спортивное мероприятие</option>
-            <option value="2">Музыкальное мероприятие</option>
-            <option value="3">Конференция</option>
-            <option value="4">Выставка</option>
-            <option value="5">Мастер класс / тренинг</option>
-            <option value="5">Праздник</option>
-            <option value="5">Банкет</option>
-            <option value="5">Благотворительная акция</option>
-            <option value="5">Другое</option>
-        </select>
-        <label class="form-label">Выбор зала</label>
-        <v-date-picker mode="date" v-model="date" />
-        <select class="form-select mb-2" aria-label="Default select example">
-            <option value="1">Большой зал</option>
-            <option value="2">Большой танцевальный зал</option>
-            <option value="3">Зал бочки</option>
-            <option value="4">Малый танцевальный зал</option>
-            <option value="5">Ситцевая</option>
-        </select>
-        <label class="form-label">Оборудование</label>
-        <div class="row row-cols-2">
-            <div class="input-group mb-3 col">
-                <span class="input-group-text">Стул</span>
-                <input type="text" class="form-control">
+        <form method="post">
+            <label class="form-label">Дата и время</label>
+            <div class="input-group col">
+                <input type="date" class="form-control mb-2" placeholder="Название мероприятия" name="date">
+                <input type="time" class="form-control mb-2" placeholder="Название мероприятия" name="time">
             </div>
-            <div class="input-group mb-3 col">
-                <span class="input-group-text">ТВ LG со стойками</span>
-                <input type="text" class="form-control">
+            <label class="form-label">Мероприятие</label>
+            <input type="text" class="form-control mb-2" placeholder="Название мероприятия" name="event_name">
+            <textarea type="text" class="form-control mb-2" placeholder="Описание мероприятия" name="event_disc"></textarea>
+            <label class="form-label">Тип мероприятия</label>
+            <select class="form-select mb-2" name="event_type">
+                <option value="1">Спортивное мероприятие</option>
+                <option value="2">Музыкальное мероприятие</option>
+                <option value="3">Конференция</option>
+                <option value="4">Выставка</option>
+                <option value="5">Мастер класс / тренинг</option>
+                <option value="6">Праздник</option>
+                <option value="7">Банкет</option>
+                <option value="8">Благотворительная акция</option>
+                <option value="9">Другое</option>
+            </select>
+            <label class="form-label">Выбор зала</label>
+            <select class="form-select mb-2" name="hall">
+                <option value="1">Большой зал</option>
+                <option value="2">Большой танцевальный зал</option>
+                <option value="3">Зал бочки</option>
+                <option value="4">Малый танцевальный зал</option>
+                <option value="5">Ситцевая</option>
+            </select>
+            <label class="form-label">Оборудование</label>
+            <div class="row row-cols-2">
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text">Стул</span>
+                    <input type="text" class="form-control" name="chair">
+                </div>
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text">ТВ LG со стойками</span>
+                    <input type="text" class="form-control" name="LG">
+                </div>
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text">Стол (коричневый)</span>
+                    <input type="nutextber" class="form-control" name="brown_table">
+                </div>
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text">Стол (белый)</span>
+                    <input type="nutextber" class="form-control" name="white_table">
+                </div>
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text">Вешалка для одежды</span>
+                    <input type="nutextber" class="form-control" name="bebra">
+                </div>
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text">Журнальный стол</span>
+                    <input type="nutextber" class="form-control" name="jour_table">
+                </div>
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text">Диван 2х местный</span>
+                    <input type="nutextber" class="form-control" name="sofa">
+                </div>
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text">Стул барный</span>
+                    <input type="nutextber" class="form-control" name="bar_chair">
+                </div>  
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text">Колонки со стойками</span>
+                    <input type="nutextber" class="form-control" name="stereo">
+                </div>
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text">Бзовая станция радио микрофона</span>
+                    <input type="nutextber" class="form-control" name="radio">
+                </div>
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text">Микшер</span>
+                    <input type="nutextber" class="form-control" name="mixer">
+                </div>
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text">Стол (бежевый)</span>
+                    <input type="nutextber" class="form-control" name="beig_table">
+                </div>
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text">Стол</span>
+                    <input type="nutextber" class="form-control" name="table">
+                </div>
             </div>
-            <div class="input-group mb-3 col">
-                <span class="input-group-text">Стол (коричневый)</span>
-                <input type="nutextber" class="form-control">
-            </div>
-            <div class="input-group mb-3 col">
-                <span class="input-group-text">Стол (белый)</span>
-                <input type="nutextber" class="form-control">
-            </div>
-            <div class="input-group mb-3 col">
-                <span class="input-group-text">Вешалка для одежды</span>
-                <input type="nutextber" class="form-control">
-            </div>
-            <div class="input-group mb-3 col">
-                <span class="input-group-text">Журнальный стол</span>
-                <input type="nutextber" class="form-control">
-            </div>
-            <div class="input-group mb-3 col">
-                <span class="input-group-text">Диван 2х местный</span>
-                <input type="nutextber" class="form-control">
-            </div>
-            <div class="input-group mb-3 col">
-                <span class="input-group-text">Стул барный</span>
-                <input type="nutextber" class="form-control">
-            </div>  
-            <div class="input-group mb-3 col">
-                <span class="input-group-text">Колонки со стойками</span>
-                <input type="nutextber" class="form-control">
-            </div>
-            <div class="input-group mb-3 col">
-                <span class="input-group-text">Бзовая станция радио микрофона</span>
-                <input type="nutextber" class="form-control">
-            </div>
-            <div class="input-group mb-3 col">
-                <span class="input-group-text">Микшер</span>
-                <input type="nutextber" class="form-control">
-            </div>
-            <div class="input-group mb-3 col">
-                <span class="input-group-text">Стол (бежевый)</span>
-                <input type="nutextber" class="form-control">
-            </div>
-            <div class="input-group mb-3 col">
-                <span class="input-group-text">Журнальный стол</span>
-                <input type="nutextber" class="form-control">
-            </div>
-            <div class="input-group mb-3 col">
-                <span class="input-group-text">Стол</span>
-                <input type="nutextber" class="form-control">
-            </div>
-        </div>
-        <label class="form-label">Контактные данные</label>
-        <input type="text" class="form-control mb-2" placeholder="ФИО / Организация">
-        <input type="text" class="form-control mb-2" placeholder="Телефон">
-        <input type="text" class="form-control mb-2" placeholder="Email">
+            <label class="form-label">Контактные данные</label>
+            <input type="text" class="form-control mb-2" placeholder="ФИО / Организация" name="FIO">
+            <input type="text" class="form-control mb-2" placeholder="Телефон" name="tel">
+            <input type="text" class="form-control mb-2" placeholder="Email" name="email">
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Забронировать</button>
+        </form>
     </div>
     <div class="col">
         <label class="form-label">Выбор зала</label>
