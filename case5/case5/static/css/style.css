@@ -14,13 +14,6 @@
     margin-top: -9px;
     z-index: -1;
 }
-.bg-color {
-    background: #31a3fc;
-}
-.bg-color:hover{
-    background: #57b6ff;
-    transition: .1s;
-}
 .form-control:focus, .form-select:focus {
     box-shadow: 0 0 0 .25rem rgba(221, 89, 15, .25);
     border: rgba(221, 89, 15, .25);
@@ -43,6 +36,7 @@
     font-family: 'Rubik Mono One', sans-serif;
     color: #fff;
 }
+
 .opt {
     font-family: 'Montserrat', sans-serif;
     text-align: end;
