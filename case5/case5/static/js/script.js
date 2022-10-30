@@ -6,7 +6,5 @@ function inf(el) {
     else {
         document.getElementById(id + 'txt').removeAttribute('hidden')
     }
-    
-    //document.getElementById(id + 'txt').removeAttribute('hidden')
+
 }
-    

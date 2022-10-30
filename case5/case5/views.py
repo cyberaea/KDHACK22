@@ -85,10 +85,14 @@ def home(request):
 
 def profile(request):
     x = int(request.COOKIES['id'])
-    bs = Booking.objects.get(user_id=x)
-    print(type(bs))
+    u = User.objects.filter(id__iexact=x)
+    un = u.latest('login').name
+    print(un)
+    bs = Booking.objects.filter(user_id__iexact=x)
     ctx = {
         'bs': bs,
+        'un': un
+        
     }
     return render(request, 'profile.html', ctx)
 
