@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Booking{% endblock %}
+{% block title %}{% endblock %}
 
 {% block content %}
 {% load static %}
@@ -11,7 +11,50 @@
   <div class="d-grid gap-3 my-3">
     <h1 class="display-5 m-0">{{ b.date }}</h1>
     <div class="btn-group" role="group">
-        <button type="button" class="btn text-start btn-secondary static" id="{{ b.date }}" onclick="inf(this)">{{ b.title }}    {{ b.time }} - {{ b.timeend }}</button>
+        <button type="button" class="btn text-start btn-secondary static" id="{{ b.date }}" onclick="inf(this)">{{ b.title }}    {{ b.time }} - {{ b.timeend }}
+            {% if b.type == '1'%}
+                <h4>{{genres.1}}</h4>
+            {% endif %}
+            {% if b.type == '2'%}
+                <h4>{{genres.2}}</h4>
+            {% endif %}
+            {% if b.type == '3'%}
+                <h4>{{genres.3}}</h4>
+            {% endif %}
+            {% if b.type == '4'%}
+                <h4>{{genres.4}}</h4>
+            {% endif %}
+            {% if b.type == '5'%}
+                <h4>{{genres.5}}</h4>
+            {% endif %}
+            {% if b.type == '6'%}
+                <h4>{{genres.6}}</h4>
+            {% endif %}
+            {% if b.type == '7'%}
+                <h4>{{genres.7}}</h4>
+            {% endif %}
+            {% if b.type == '8'%}
+                <h4>{{genres.8}}</h4>
+            {% endif %}
+            {% if b.type == '9'%}
+                <h4>{{genres.9}}</h4>
+            {% endif %}
+            {% if b.type == '1'%}
+                <h4>{{hall.1}}</h4>
+            {% endif %}
+            {% if b.type == '2'%}
+                <h4>{{hall.2}}</h4>
+            {% endif %}
+            {% if b.type == '3'%}
+                <h4>{{hall.3}}</h4>
+            {% endif %}
+            {% if b.type == '4'%}
+                <h4>{{hall.4}}</h4>
+            {% endif %}
+            {% if b.type == '5'%}
+                <h4>{{hall.5}}</h4>
+            {% endif %}
+        </button>
     </div>
   </div>
   {% endfor %}

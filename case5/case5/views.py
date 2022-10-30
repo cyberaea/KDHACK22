@@ -109,15 +109,19 @@ def profile(request):
         '4': 'Малый ситцевый зал',
         '5': 'Ситцевая',
     }
-    
+
     x = int(request.COOKIES['id'])
     u = User.objects.filter(id__iexact=x)
     un = u.latest('login').name
-    print(un)
+    # print(un)
     bs = Booking.objects.filter(user_id__iexact=x)
+    for b in bs:
+        print(b.type)
     ctx = {
         'bs': bs,
-        'un': un
+        'un': un,
+        'genres': genres,
+        'hall': halls,
     }
 
 
@@ -130,7 +134,7 @@ def login(request):
         password = request.POST.get('password')
         user = User.objects.filter(login__iexact=username)
         if not (user.count() == 0):
-            print(user.latest('login').id)
+            # print(user.latest('login').id)
             if username == user.latest('login').login and password == user.latest('login').password:
                 rsn.set_cookie('id', user.latest('login').id, max_age=315336000)
                 # return redirect('/profile')
