@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from user.models import User
 
 
@@ -19,6 +19,11 @@ def profile(request):
 
 def login(request):
     return render(request, 'login.html')
+def home(request):
+    return render(request, 'home.html')
+
+def adminpanel(request):
+    return render(request, 'adminpanel.html')
 
 def singup(request):
     if request.method == 'POST':
@@ -29,4 +34,5 @@ def singup(request):
         user.email = request.POST.get('email')
         user.password = request.POST.get('password')
         user.save()
+        return redirect('profile')
     return render(request, 'singup.html')

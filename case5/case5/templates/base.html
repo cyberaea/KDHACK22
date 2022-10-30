@@ -6,6 +6,7 @@
     <title>{% block title %}{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script lang="js" src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
     <div class="container">
@@ -15,9 +16,10 @@
           </a>
     
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="{% url 'home' %}" class="nav-link px-2 link-dark">Дом</a></li>
             <li><a href="{% url 'profile' %}" class="nav-link px-2 link-dark">Профиль</a></li>
             <li><a href="{% url 'booking' %}" class="nav-link px-2 link-dark">Бронирование</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Панель администратора</a></li>
+            <li><a href="{% url 'adminpanel' %}" class="nav-link px-2 link-dark">Панель администратора</a></li>
           </ul>
     
           <div class="col-md-3 text-end">

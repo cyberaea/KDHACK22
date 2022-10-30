@@ -3,20 +3,41 @@
 {% block title %}Booking{% endblock %}
 
 {% block content %}
+{% load static %}
 <div class="row">
     <div class="col">
         <label class="form-label">Дата и время</label>
+
         <div class="input-group mb-3 col">
             <input type="date" class="form-control mb-2" placeholder="Название мероприятия">
             <input type="time" class="form-control mb-2" placeholder="Название мероприятия">
         </div>
         <label class="form-label">Мероприятие</label>
         <input type="text" class="form-control mb-2" placeholder="Название мероприятия">
-        <input type="text" class="form-control mb-2" placeholder="Тип мероприятия">
         <textarea type="text" class="form-control mb-2" placeholder="Описание мероприятия"></textarea>
+        <label class="form-label">Тип мероприятия</label>
+        <select class="form-select mb-2" aria-label="Default select example">
+            <option value="1">Спортивное мероприятие</option>
+            <option value="2">Музыкальное мероприятие</option>
+            <option value="3">Конференция</option>
+            <option value="4">Выставка</option>
+            <option value="5">Мастер класс / тренинг</option>
+            <option value="5">Праздник</option>
+            <option value="5">Банкет</option>
+            <option value="5">Благотворительная акция</option>
+            <option value="5">Другое</option>
+        </select>
         <label class="form-label">Выбор зала</label>
+        <v-date-picker mode="date" v-model="date" />
+        <select class="form-select mb-2" aria-label="Default select example">
+            <option value="1">Большой зал</option>
+            <option value="2">Большой танцевальный зал</option>
+            <option value="3">Зал бочки</option>
+            <option value="4">Малый танцевальный зал</option>
+            <option value="5">Ситцевая</option>
+        </select>
         <label class="form-label">Оборудование</label>
-        <div class="">
+        <div class="row row-cols-2">
             <div class="input-group mb-3 col">
                 <span class="input-group-text">Стул</span>
                 <input type="text" class="form-control">
@@ -80,14 +101,85 @@
         <input type="text" class="form-control mb-2" placeholder="Email">
     </div>
     <div class="col">
-        <h1 class="form-label">Мероприятие</h1>
-        <p>ergqergqergqrgqergqe<br>agsgagergqetg<br>afdgaga<br>agsgagergqetg<br>afdgaga<br>agsgagergqetg<br>afdgaga</p>
-        <h1 class="form-label">Выбор зала</h1>
-        <p>ergqergqergqrgqergqe<br>agsgagergqetg<br>afdgaga<br>agsgagergqetg<br>afdgaga<br>agsgagergqetg<br>afdgaga</p>
-        <h1 class="form-label">Оборудование</h1>
-        <p>ergqergqergqrgqergqe<br>agsgagergqetg<br>afdgaga<br>agsgagergqetg<br>afdgaga<br>agsgagergqetg<br>afdgaga</p>
-        <h1 class="form-label">Контактные данные</h1>
-        <p>ergqergqergqrgqergqe<br>agsgagergqetg<br>afdgaga<br>agsgagergqetg<br>afdgaga<br>agsgagergqetg<br>afdgaga</p>
+        <label class="form-label">Выбор зала</label>
+        <div class="halls">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                    <img src="{% static 'img/bighall.jpg' %}" class="img-fluid rounded-start">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h5 class="card-title">Большой зал</h5>
+                            <p class="card-text"><small>Помещение S 248,4 кв.м., Напольное покрытие-паркет, у правой стены расположены 4 окна, по
+                            периметру стены украшены лепниной. Стены зала выполнены в сером цвете. Передняя часть
+                            помещения располагает сцену. Имеется балкон S 31,4 кв.м, с правой стороны на балконе
+                            расположено окно. Помещение вмещает в себя около 150 человек.</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h5 class="card-title">Большой танцевальный зал</h5>
+                            <p class="card-text"><small>Помещение S 108,1 кв.м., высота потолка 4,2м. Напольное покрытие-ламинат, по периметру
+                                расположено 5 окон, Передняя стена имеет зеркальное покрытие. Помещение вмещает в себя
+                                около 25-35 человек.</small></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="{% static 'img/bigdancehall.jpg' %}" class="img-fluid rounded-end">
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <img src="{% static 'img/barell.jpg' %}" class="img-fluid rounded-start">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h5 class="card-title">Зал бочки</h5>
+                            <p class="card-text"><small>Помещение S 108,1 кв.м., Напольное покрытие-паркет, По периметру расположено 11 окон, у
+                                задней стены расположена сцена с зеркальным покрытием. Потолок имеет освещение , которое
+                                оформлено люстрами в виде «бочек». Стены украшены художественными узорами. Помещение
+                                вмещает в себя около 50 человек.</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h5 class="card-title">Малый танцевальный зал</h5>
+                            <p class="card-text"><small>Помещение S 41,1 кв.м., Высота потолка 4,2м. Напольное покрытие-ламинат, на передней
+                                расположено 3 окна, задняя и правая стены имеют зеркальное покрытие. Зал вмешает в себя 15-
+                                20 чел.</small></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="{% static 'img/smalldancehall.jpg' %}" class="img-fluid rounded-end">
+                    </div>   
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <img src="{% static 'img/sitc.jpg' %}" class="card-img-top" alt="...">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h5 class="card-title">Ситцевая</h5>
+                            <p class="card-text"><small>Помещение S 39 кв.м., Напольное покрытие-паркет, передняя стена располагает 3 окна с
+                                деревянными резными ставнями. Стены оформлены текстилем. Помещение вмещает 20-25 чел.</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
